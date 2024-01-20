@@ -4,9 +4,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.promoshow.R
+import com.example.promoshow.ui.dashboard.DashboardFragmentDirections
 
 class StoresPreviewFragment : Fragment() {
 
@@ -24,9 +26,12 @@ class StoresPreviewFragment : Fragment() {
 
         val stores = listOf("Empik", "KFC", "MediaMarket", "Sephora", "Rituals")
 
-        storesAdapter = StoresPreviewAdapter(stores)
+        storesAdapter = StoresPreviewAdapter(stores, ::handleOfferClick)
         recyclerView.adapter = storesAdapter
 
         return view
+    }
+    private fun handleOfferClick(int: Int) {
+        findNavController().navigate(DashboardFragmentDirections.actionStoresPreviewFragmentToStoresDetailsActivity(int))
     }
 }

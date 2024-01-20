@@ -9,10 +9,22 @@
         android:id="@+id/dealsDetailsActivity"
         android:name="com.example.promoshow.feature.deals.details.DealsDetailsActivity"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" >
+        tools:layout="@layout/fragment_deals_details" >
 
         <argument
             android:name="deal_id"
+            app:argType="integer" />
+
+    </activity>
+
+    <activity
+        android:id="@+id/storesDetailsActivity"
+        android:name="com.example.promoshow.feature.stores.details.StoresDetailsActivity"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_store_details" >
+
+        <argument
+            android:name="store_id"
             app:argType="integer" />
 
     </activity>
@@ -28,12 +40,25 @@
             app:destination="@id/dealsDetailsActivity">
         </action>
 
+        <action
+            android:id="@+id/action_storesPreviewFragment_to_storesDetailsActivity"
+            app:destination="@id/storesDetailsActivity">
+        </action>
+
     </fragment>
 
     <fragment
         android:id="@+id/navigation_outlets"
         android:name="com.example.promoshow.feature.stores.StoresListFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_stores_list" />
+        tools:layout="@layout/fragment_stores_list" >
+
+        <action
+            android:id="@+id/action_storesListFragment_to_storesDetailsActivity"
+            app:destination="@id/storesDetailsActivity">
+        </action>
+
+    </fragment>
+
 
 </navigation>
