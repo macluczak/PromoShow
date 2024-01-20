@@ -31,9 +31,9 @@
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.example.promoshow.ui.home.HomeFragment"
+        android:id="@+id/navigation_outlets"
+        android:name="com.example.promoshow.feature.stores.StoresListFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_stores_list" />
 
 </navigation>
