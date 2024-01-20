@@ -5,6 +5,18 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@id/navigation_dashboard">
 
+    <activity
+        android:id="@+id/dealsDetailsActivity"
+        android:name="com.example.promoshow.feature.deals.details.DealsDetailsActivity"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard" >
+
+        <argument
+            android:name="deal_id"
+            app:argType="integer" />
+
+    </activity>
+
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.example.promoshow.ui.dashboard.DashboardFragment"
@@ -12,8 +24,8 @@
         tools:layout="@layout/fragment_dashboard" >
 
         <action
-            android:id="@+id/action_dealsPreviewFragment_to_dealsDetailsFragment"
-            app:destination="@id/dealsDetailsFragment">
+            android:id="@+id/action_dealsPreviewFragment_to_dealsDetailsActivity"
+            app:destination="@id/dealsDetailsActivity">
         </action>
 
     </fragment>
@@ -23,13 +35,5 @@
         android:name="com.example.promoshow.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
-
-    <fragment
-        android:id="@+id/dealsDetailsFragment"
-        android:name="com.example.promoshow.feature.deals.details.DealsDetailsFragment"
-        android:label="Deals detail"
-        tools:layout="@layout/fragment_deals_details">
-
-    </fragment>
 
 </navigation>

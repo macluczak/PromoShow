@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/details_nav"
+    app:startDestination="@id/dealsDetailsFragment">
+
+    <fragment
+        android:id="@+id/dealsDetailsFragment"
+        android:name="com.example.promoshow.feature.deals.details.DealsDetailsFragment"
+        android:label="Deal Details"
+        tools:layout="@layout/fragment_deals_details">
+
+        <argument
+            android:name="deal_id"
+            app:argType="integer" />
+    </fragment>
+
+</navigation>

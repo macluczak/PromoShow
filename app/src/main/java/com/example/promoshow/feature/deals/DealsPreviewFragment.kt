@@ -1,7 +1,5 @@
 package com.example.promoshow.feature.deals
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +8,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.promoshow.R
-import com.example.promoshow.feature.deals.details.DealsDetailsActivity
+import com.example.promoshow.ui.dashboard.DashboardFragmentDirections
 
 class DealsPreviewFragment : Fragment() {
 
@@ -35,12 +33,6 @@ class DealsPreviewFragment : Fragment() {
     }
 
     private fun handleOfferClick(int: Int) {
-        Log.d("TEST_DEAL", "product: $int")
-        val intent = Intent(requireContext(), DealsDetailsActivity::class.java)
-        intent.putExtra("selectedProduct", int)
-        startActivity(intent)
-//        val bundle = Bundle()
-//        bundle.putInt("selectedProduct", int)
-//        findNavController().navigate(R.id.action_dealsPreviewFragment_to_dealsDetailsFragment, bundle)
+        findNavController().navigate(DashboardFragmentDirections.actionDealsPreviewFragmentToDealsDetailsActivity(int))
     }
 }
