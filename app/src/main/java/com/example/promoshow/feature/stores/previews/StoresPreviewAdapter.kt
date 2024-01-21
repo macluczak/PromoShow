@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.api.shop.model.Shop
 import com.example.promoshow.R
 
-class StoresPreviewAdapter(private val shops: List<Shop>, private val offerClickListener: (Int) -> Unit) :
+class StoresPreviewAdapter(private val shops: List<Shop>, private val offerClickListener: (Shop) -> Unit) :
     RecyclerView.Adapter<StoresPreviewAdapter.StoresViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StoresViewHolder {
@@ -24,12 +24,12 @@ class StoresPreviewAdapter(private val shops: List<Shop>, private val offerClick
         return shops.size
     }
 
-    class StoresViewHolder(itemView: View, private val offerClickListener: (Int) -> Unit) : RecyclerView.ViewHolder(itemView) {
+    class StoresViewHolder(itemView: View, private val offerClickListener: (Shop) -> Unit) : RecyclerView.ViewHolder(itemView) {
         private val title: TextView = itemView.findViewById(R.id.storesTitleTextView)
 
         fun bind(shop: Shop) {
             title.text = shop.name
-            itemView.setOnClickListener { offerClickListener(adapterPosition)}
+            itemView.setOnClickListener { offerClickListener(shop)}
         }
     }
 }

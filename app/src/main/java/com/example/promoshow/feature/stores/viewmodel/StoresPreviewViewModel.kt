@@ -1,4 +1,4 @@
-package com.example.promoshow.feature.deals.previews
+package com.example.promoshow.feature.stores.viewmodel
 
 
 import androidx.lifecycle.LiveData

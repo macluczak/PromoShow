@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.api.product.model.Product
 import com.example.promoshow.R
 import com.example.promoshow.databinding.FragmentStoreDetailsBinding
 
@@ -40,12 +41,13 @@ class StoreDetailsFragment : Fragment() {
         recyclerView.layoutManager =
             GridLayoutManager(activity, 3,  GridLayoutManager.VERTICAL, false)
 
-        val deals = listOf("Iphone 12", "Air Jordan's", "Galaxy 22", "BigMac", "Eyeliner")
 
-        storesDealsAdapter = StoresDealsAdapter(deals, ::handleOfferClick)
+        storesDealsAdapter = StoresDealsAdapter(args.shopObject.products, ::handleOfferClick)
         recyclerView.adapter = storesDealsAdapter
 
-        binding.storeName.text = args.storeId.toString()
+        binding.storeName.text = args.shopObject.name
+        binding.storeDescription.text = args.shopObject.description
+
     }
 
     override fun onDestroyView() {
@@ -53,7 +55,7 @@ class StoreDetailsFragment : Fragment() {
         _binding = null
     }
 
-    private fun handleOfferClick(int: Int) {
-        findNavController().navigate(StoreDetailsFragmentDirections.actionStoresDetailsFragmentToDealsDetailsActivity(int))
+    private fun handleOfferClick(deal: Product) {
+        findNavController().navigate(StoreDetailsFragmentDirections.actionStoresDetailsFragmentToDealsDetailsActivity(deal))
     }
 }

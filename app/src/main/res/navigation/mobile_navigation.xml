@@ -12,8 +12,9 @@
         tools:layout="@layout/fragment_deals_details" >
 
         <argument
-            android:name="deal_id"
-            app:argType="integer" />
+            android:name="deal_object"
+            app:argType="com.example.api.product.model.Product" />
+
 
     </activity>
 
@@ -24,8 +25,21 @@
         tools:layout="@layout/fragment_store_details" >
 
         <argument
-            android:name="store_id"
-            app:argType="integer" />
+            android:name="shop_object"
+            app:argType="com.example.api.shop.model.Shop" />
+
+
+    </activity>
+
+    <activity
+        android:id="@+id/searchDealsActivity"
+        android:name="com.example.promoshow.feature.stores.details.StoresDetailsActivity"
+        android:label="Search_label"
+        tools:layout="@layout/fragment_store_details" >
+
+        <argument
+            android:name="category_object"
+            app:argType="com.example.promoshow.model.Category" />
 
     </activity>
 
@@ -49,7 +63,7 @@
 
     <fragment
         android:id="@+id/navigation_outlets"
-        android:name="com.example.promoshow.feature.stores.StoresListFragment"
+        android:name="com.example.promoshow.feature.stores.list.StoresListFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_stores_list" >
 

@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.api.product.model.Product
 import com.example.promoshow.databinding.FragmentDealsPreviewBinding
 import com.example.promoshow.ui.dashboard.DashboardFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
@@ -53,7 +54,7 @@ class DealsPreviewFragment : Fragment() {
         return root
     }
 
-    private fun handleOfferClick(int: Int) {
-        findNavController().navigate(DashboardFragmentDirections.actionDealsPreviewFragmentToDealsDetailsActivity(int))
+    private fun handleOfferClick(deal: Product) {
+        findNavController().navigate(DashboardFragmentDirections.actionDealsPreviewFragmentToDealsDetailsActivity(deal))
     }
 }

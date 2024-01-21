@@ -1,12 +1,13 @@
-package com.example.promoshow.feature.stores
+package com.example.promoshow.feature.stores.list
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.api.shop.model.Shop
 import com.example.promoshow.R
 
-class StoresListAdapter(private val deals: List<String>,  private val offerClickListener: (Int) -> Unit) :
+class StoresListAdapter(private val deals: List<Shop>,  private val offerClickListener: (Shop) -> Unit) :
     RecyclerView.Adapter<StoresListAdapter.StoresViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StoresViewHolder {
@@ -23,12 +24,12 @@ class StoresListAdapter(private val deals: List<String>,  private val offerClick
         return deals.size
     }
 
-    class StoresViewHolder(itemView: View,  private val offerClickListener: (Int) -> Unit) : RecyclerView.ViewHolder(itemView) {
-        private val categoryTextView: TextView = itemView.findViewById(R.id.storesTitleTextView)
+    class StoresViewHolder(itemView: View,  private val offerClickListener: (Shop) -> Unit) : RecyclerView.ViewHolder(itemView) {
+        private val title: TextView = itemView.findViewById(R.id.storesTitleTextView)
 
-        fun bind(category: String) {
-            categoryTextView.text = category
-            itemView.setOnClickListener { offerClickListener(adapterPosition)}
+        fun bind(shop: Shop) {
+            title.text = shop.name
+            itemView.setOnClickListener { offerClickListener(shop)}
         }
     }
 }

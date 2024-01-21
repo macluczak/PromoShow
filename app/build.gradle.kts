@@ -60,6 +60,7 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.7.5")
 
     implementation("com.google.dagger:hilt-android:2.46")
+    implementation ("androidx.coordinatorlayout:coordinatorlayout:1.2.0")
     kapt("com.google.dagger:hilt-android-compiler:2.46")
 
     implementation(project(mapOf("path" to ":api")))

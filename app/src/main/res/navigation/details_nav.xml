@@ -12,8 +12,9 @@
         tools:layout="@layout/fragment_deals_details">
 
         <argument
-            android:name="deal_id"
-            app:argType="integer" />
+            android:name="deal_object"
+            app:argType="com.example.api.product.model.Product" />
+
     </fragment>
 
 </navigation>

@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.api.product.model.Product
 import com.example.promoshow.R
 
-class DealsPreviewAdapter(private val deals: List<Product>, private val offerClickListener: (Int) -> Unit,) :
+class DealsPreviewAdapter(private val deals: List<Product>, private val offerClickListener: (Product) -> Unit,) :
     RecyclerView.Adapter<DealsPreviewAdapter.DealsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DealsViewHolder {
@@ -24,12 +24,12 @@ class DealsPreviewAdapter(private val deals: List<Product>, private val offerCli
         return deals.size
     }
 
-    class DealsViewHolder(itemView: View, private val offerClickListener: (Int) -> Unit,) : RecyclerView.ViewHolder(itemView) {
+    class DealsViewHolder(itemView: View, private val offerClickListener: (Product) -> Unit,) : RecyclerView.ViewHolder(itemView) {
         private val title: TextView = itemView.findViewById(R.id.dealsTitleTextView)
 
         fun bind(deal: Product) {
             title.text = deal.name
-            itemView.setOnClickListener { offerClickListener(adapterPosition)}
+            itemView.setOnClickListener { offerClickListener(deal)}
         }
 
     }

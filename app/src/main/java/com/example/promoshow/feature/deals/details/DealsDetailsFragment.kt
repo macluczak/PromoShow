@@ -30,7 +30,10 @@ class DealsDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.dealId.text = args.dealId.toString()
+        binding.dealId.text = args.dealObject.id.toString()
+        binding.dealName.text = args.dealObject.name
+        binding.dealDescription.text = args.dealObject.description
+        binding.dealOutlet.text = "Producent"
     }
 
     override fun onDestroyView() {

@@ -11,8 +11,8 @@
         android:label="Store Details"
         tools:layout="@layout/fragment_store_details">
         <argument
-            android:name="store_id"
-            app:argType="integer" />
+            android:name="shop_object"
+            app:argType="com.example.api.shop.model.Shop" />
 
         <action
             android:id="@+id/action_storesDetailsFragment_to_dealsDetailsActivity"
@@ -28,8 +28,8 @@
         tools:layout="@layout/fragment_deals_details" >
 
         <argument
-            android:name="deal_id"
-            app:argType="integer" />
+            android:name="deal_object"
+            app:argType="com.example.api.product.model.Product" />
 
     </activity>
 
