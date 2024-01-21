@@ -1,12 +1,13 @@
-package com.example.promoshow.feature.stores
+package com.example.promoshow.feature.stores.previews
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.api.shop.model.Shop
 import com.example.promoshow.R
 
-class StoresPreviewAdapter(private val deals: List<String>,  private val offerClickListener: (Int) -> Unit) :
+class StoresPreviewAdapter(private val shops: List<Shop>, private val offerClickListener: (Int) -> Unit) :
     RecyclerView.Adapter<StoresPreviewAdapter.StoresViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StoresViewHolder {
@@ -16,18 +17,18 @@ class StoresPreviewAdapter(private val deals: List<String>,  private val offerCl
     }
 
     override fun onBindViewHolder(holder: StoresViewHolder, position: Int) {
-        holder.bind(deals[position])
+        holder.bind(shops[position])
     }
 
     override fun getItemCount(): Int {
-        return deals.size
+        return shops.size
     }
 
     class StoresViewHolder(itemView: View, private val offerClickListener: (Int) -> Unit) : RecyclerView.ViewHolder(itemView) {
-        private val categoryTextView: TextView = itemView.findViewById(R.id.storesTitleTextView)
+        private val title: TextView = itemView.findViewById(R.id.storesTitleTextView)
 
-        fun bind(category: String) {
-            categoryTextView.text = category
+        fun bind(shop: Shop) {
+            title.text = shop.name
             itemView.setOnClickListener { offerClickListener(adapterPosition)}
         }
     }

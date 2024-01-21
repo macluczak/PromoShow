@@ -1,0 +1,21 @@
+# Gradle
+.gradle/
+/build/
+
+# Kotlin
+*.kotlin_module
+
+# IntelliJ
+.idea/
+*.iml
+
+# System
+.DS_Store
+Thumbs.db
+
+# Dependencies
+/.idea/libraries
+*.jar
+*.war
+*.ear
+*.class

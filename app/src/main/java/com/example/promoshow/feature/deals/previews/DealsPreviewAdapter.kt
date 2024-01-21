@@ -1,13 +1,13 @@
-package com.example.promoshow.feature.deals
+package com.example.promoshow.feature.deals.previews
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.api.product.model.Product
 import com.example.promoshow.R
-import kotlin.reflect.KFunction0
 
-class DealsPreviewAdapter(private val deals: List<String>, private val offerClickListener: (Int) -> Unit,) :
+class DealsPreviewAdapter(private val deals: List<Product>, private val offerClickListener: (Int) -> Unit,) :
     RecyclerView.Adapter<DealsPreviewAdapter.DealsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DealsViewHolder {
@@ -25,10 +25,10 @@ class DealsPreviewAdapter(private val deals: List<String>, private val offerClic
     }
 
     class DealsViewHolder(itemView: View, private val offerClickListener: (Int) -> Unit,) : RecyclerView.ViewHolder(itemView) {
-//        private val categoryTextView: TextView = itemView.findViewById(R.id.dealsTitleTextView)
+        private val title: TextView = itemView.findViewById(R.id.dealsTitleTextView)
 
-        fun bind(category: String) {
-//            categoryTextView.text = category
+        fun bind(deal: Product) {
+            title.text = deal.name
             itemView.setOnClickListener { offerClickListener(adapterPosition)}
         }
 

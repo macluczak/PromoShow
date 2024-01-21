@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "PromoShow"
 include(":app")
- 
+include(":api")
