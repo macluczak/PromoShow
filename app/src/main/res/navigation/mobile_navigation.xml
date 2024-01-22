@@ -77,5 +77,17 @@
 
     </fragment>
 
+    <fragment
+        android:id="@+id/navigation_favourites"
+        android:name="com.example.promoshow.feature.favourites.FavouritesFragment"
+        android:label="favourites_label"
+        tools:layout="@layout/fragment_favourites">
+
+        <action
+            android:id="@+id/action_favouritesFragment_to_dealsDetailsActivity"
+            app:destination="@id/dealsDetailsActivity">
+        </action>
+
+    </fragment>
 
 </navigation>

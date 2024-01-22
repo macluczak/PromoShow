@@ -1,18 +1,16 @@
 package com.example.promoshow.feature.stores.previews
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.api.shop.model.Shop
 import com.example.promoshow.databinding.FragmentStoresPreviewBinding
-import com.example.promoshow.feature.stores.viewmodel.StoresPreviewViewModel
+import com.example.promoshow.feature.stores.viewmodel.StoresViewModel
 import com.example.promoshow.ui.dashboard.DashboardFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -30,13 +28,12 @@ class StoresPreviewFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val storesViewModel: StoresPreviewViewModel by viewModels({ requireActivity() })
+        val storesViewModel: StoresViewModel by viewModels({ requireActivity() })
 
         _binding = FragmentStoresPreviewBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         storesViewModel.shops.observe(viewLifecycleOwner) {
-            Log.d("API_CALL", "LIST_OF_SHOPS: $it")
 
             recyclerView = binding.recyclerView
             recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)

@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.api.product.model.Product
 import com.example.promoshow.databinding.FragmentDealsPreviewBinding
+import com.example.promoshow.model.Category
 import com.example.promoshow.ui.dashboard.DashboardFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -28,10 +29,12 @@ class DealsPreviewFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val dealsViewModel: DealsPreviewViewModel by viewModels({ requireActivity() })
+        val dealsViewModel: DealsViewModel by viewModels({ requireActivity() })
 
         _binding = FragmentDealsPreviewBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        binding.dealViewAll.setOnClickListener { handleViewAll() }
 
         dealsViewModel.products.observe(viewLifecycleOwner) {
 
@@ -40,13 +43,13 @@ class DealsPreviewFragment : Fragment() {
 
             dealsAdapter = DealsPreviewAdapter(it, ::handleOfferClick)
             recyclerView.adapter = dealsAdapter
-
         }
-
         return root
     }
 
-    private fun handleOfferClick(deal: Product) {
+    private fun handleOfferClick(deal: Product) =
         findNavController().navigate(DashboardFragmentDirections.actionDealsPreviewFragmentToDealsDetailsActivity(deal))
-    }
+
+    private fun handleViewAll() =
+        findNavController().navigate(DashboardFragmentDirections.actionDealsPreviewFragmentToCategoryActivity(Category.All))
 }

@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class StoresPreviewViewModel @Inject constructor(
+class StoresViewModel @Inject constructor(
     private val shopApi: ShopApi
 ) : ViewModel() {
     private val _shops = MutableLiveData<List<Shop>>()
@@ -23,7 +23,7 @@ class StoresPreviewViewModel @Inject constructor(
         fetchStores()
     }
 
-    private fun fetchStores() {
+    fun fetchStores() {
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val response = shopApi.getShops()

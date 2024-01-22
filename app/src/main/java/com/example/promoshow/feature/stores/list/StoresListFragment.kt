@@ -5,13 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.api.shop.model.Shop
 import com.example.promoshow.databinding.FragmentStoresListBinding
-import com.example.promoshow.feature.stores.viewmodel.StoresPreviewViewModel
+import com.example.promoshow.feature.stores.viewmodel.StoresViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -28,7 +27,7 @@ class StoresListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val storesViewModel: StoresPreviewViewModel by viewModels({ requireActivity() })
+        val storesViewModel: StoresViewModel by viewModels({ requireActivity() })
 
         _binding = FragmentStoresListBinding.inflate(inflater, container, false)
         val root: View = binding.root

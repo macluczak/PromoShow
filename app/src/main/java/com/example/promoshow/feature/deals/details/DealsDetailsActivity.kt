@@ -2,12 +2,12 @@ package com.example.promoshow.feature.deals.details
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.navArgs
 import com.example.promoshow.R
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DealsDetailsActivity : AppCompatActivity() {
 
     val args: DealsDetailsActivityArgs by navArgs()

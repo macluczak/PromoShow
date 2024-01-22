@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.api.product.model.Product
 import com.example.promoshow.databinding.FragmentCategoryBinding
-import com.example.promoshow.feature.deals.previews.DealsPreviewViewModel
+import com.example.promoshow.feature.deals.previews.DealsViewModel
 import com.example.promoshow.feature.stores.details.StoresDealsAdapter
 import com.example.promoshow.model.Category
 import dagger.hilt.android.AndroidEntryPoint
@@ -34,15 +34,14 @@ class CategoryFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val dealsViewModel: DealsPreviewViewModel by viewModels({ requireActivity() })
+        val dealsViewModel: DealsViewModel by viewModels({ requireActivity() })
 
         _binding = FragmentCategoryBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
-        binding.headerSubtitle.text = args.categoryObject.name
-        binding.categoryImage.background = ContextCompat.getDrawable(requireActivity(), args.categoryObject.icon)
-
         val selectedCategory = args.categoryObject
+
+        binding.headerSubtitle.text = selectedCategory.name
+        binding.categoryImage.background = ContextCompat.getDrawable(requireActivity(), args.categoryObject.icon)
 
         dealsViewModel.products.observe(viewLifecycleOwner) { it ->
 
