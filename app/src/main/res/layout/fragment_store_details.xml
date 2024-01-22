@@ -16,7 +16,6 @@
             app:layout_scrollFlags="scroll|enterAlwaysCollapsed"
             android:background="@drawable/bottom_rounded_background">
 
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -27,9 +26,6 @@
                 android:paddingBottom="10dp"
                 >
 
-
-
-                <!-- Your CardView and its contents go here -->
                 <androidx.cardview.widget.CardView
                     android:layout_width="200dp"
                     android:layout_height="200dp"
@@ -55,7 +51,6 @@
                     android:layout_height="wrap_content"
                     android:text="Media market" />
 
-
                 <TextView
                     android:paddingHorizontal="@dimen/activity_horizontal_margin"
                     android:id="@+id/store_description"
@@ -68,12 +63,6 @@
 
             </LinearLayout>
 
-
-
-
-
-
-
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -83,18 +72,17 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <!-- Your main content goes here -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingTop="15dp">
+            android:orientation="vertical">
 
             <androidx.recyclerview.widget.RecyclerView
+                android:paddingTop="15dp"
+                android:paddingBottom="30dp"
                 android:id="@+id/store_items_rc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>

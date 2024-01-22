@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.promoshow.databinding.FragmentDashboardBinding
-import com.example.promoshow.feature.category.CategoryPreviewFragment
+import com.example.promoshow.feature.category.preview.CategoryPreviewFragment
 import com.example.promoshow.feature.deals.previews.DealsPreviewFragment
 import com.example.promoshow.feature.stores.previews.StoresPreviewFragment
 

@@ -1,6 +1,7 @@
 package com.example.promoshow.feature.deals.previews
 
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -28,6 +29,7 @@ class DealsPreviewViewModel @Inject constructor(
             try {
                 val response = productApi.getProducts()
                 _products.postValue(response)
+                Log.d("API_CALL", "LIST_OF_PRODUCTS: $response")
 
             } catch (e: Exception) {
                 e.printStackTrace()

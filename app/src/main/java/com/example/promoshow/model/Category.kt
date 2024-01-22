@@ -10,4 +10,5 @@ enum class Category(val icon: Int) {
     Home(R.drawable.category_home),
     Sport(R.drawable.category_sport),
     Health(R.drawable.category_health),
+    All(R.drawable.category_all)
 }

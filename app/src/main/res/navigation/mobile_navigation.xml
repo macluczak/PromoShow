@@ -15,7 +15,6 @@
             android:name="deal_object"
             app:argType="com.example.api.product.model.Product" />
 
-
     </activity>
 
     <activity
@@ -28,14 +27,13 @@
             android:name="shop_object"
             app:argType="com.example.api.shop.model.Shop" />
 
-
     </activity>
 
     <activity
         android:id="@+id/searchDealsActivity"
-        android:name="com.example.promoshow.feature.stores.details.StoresDetailsActivity"
+        android:name="com.example.promoshow.feature.category.activity.CategoryActivity"
         android:label="Search_label"
-        tools:layout="@layout/fragment_store_details" >
+        tools:layout="@layout/fragment_category" >
 
         <argument
             android:name="category_object"
@@ -52,6 +50,11 @@
         <action
             android:id="@+id/action_dealsPreviewFragment_to_dealsDetailsActivity"
             app:destination="@id/dealsDetailsActivity">
+        </action>
+
+        <action
+            android:id="@+id/action_dealsPreviewFragment_to_categoryActivity"
+            app:destination="@id/searchDealsActivity">
         </action>
 
         <action

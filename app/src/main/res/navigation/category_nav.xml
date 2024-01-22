@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/store_nav"
+    app:startDestination="@id/categoryDealsFragment">
+
+    <fragment
+        android:id="@+id/categoryDealsFragment"
+        android:name="com.example.promoshow.feature.category.activity.CategoryFragment"
+        android:label="Store Details"
+        tools:layout="@layout/fragment_category">
+        <argument
+            android:name="category_object"
+            app:argType="com.example.promoshow.model.Category" />
+
+        <action
+            android:id="@+id/action_searchDealsFragment_to_dealsDetailsActivity"
+            app:destination="@id/dealsDetailsActivity">
+        </action>
+    </fragment>
+
+
+    <activity
+        android:id="@+id/dealsDetailsActivity"
+        android:name="com.example.promoshow.feature.deals.details.DealsDetailsActivity"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_deals_details" >
+
+        <argument
+            android:name="deal_object"
+            app:argType="com.example.api.product.model.Product" />
+
+    </activity>
+
+</navigation>

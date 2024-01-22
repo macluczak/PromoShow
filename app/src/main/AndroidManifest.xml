@@ -18,7 +18,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ui.search.SearchDealsActivity"
+            android:name=".feature.category.activity.CategoryActivity"
             android:exported="false" />
         <activity
             android:name=".feature.stores.details.StoresDetailsActivity"
