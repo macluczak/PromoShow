@@ -3,28 +3,26 @@ package com.example.api.shop.model
 import android.os.Parcel
 import android.os.Parcelable
 import com.example.api.product.model.Product
-import kotlinx.serialization.Serializable
 import java.util.Date
 import java.util.UUID
 
-@Serializable
 data class Shop(
-    val id: UUID?,
-    val name: String,
-    val description: String,
-    val image: String,
-    val locationCode: String,
-    val products: List<Product>,
-    val createdAt: Date?,
-    val updatedAt: Date?
+    var id: UUID?,
+    var name: String,
+    var description: String,
+    var image: String,
+    var locationCode: String,
+    var products: List<Product>,
+    var createdAt: Date?,
+    var updatedAt: Date?
 ) : Parcelable {
 
     constructor(parcel: Parcel) : this(
         parcel.readSerializable() as UUID?,
-        parcel.readString().toString(),
-        parcel.readString().toString(),
-        parcel.readString().toString(),
-        parcel.readString().toString(),
+        parcel.readString().orEmpty(),
+        parcel.readString().orEmpty(),
+        parcel.readString().orEmpty(),
+        parcel.readString().orEmpty(),
         mutableListOf<Product>().apply {
             parcel.readList(this, Product::class.java.classLoader)
         },

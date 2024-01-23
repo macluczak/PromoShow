@@ -1,4 +1,5 @@
 package com.example.promoshow.feature.deals.previews
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -36,20 +37,33 @@ class DealsPreviewFragment : Fragment() {
 
         binding.dealViewAll.setOnClickListener { handleViewAll() }
 
-        dealsViewModel.products.observe(viewLifecycleOwner) {
+        dealsViewModel.products.observe(viewLifecycleOwner) { deals ->
 
             recyclerView = binding.recyclerView
-            recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+            recyclerView.layoutManager =
+                LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
 
-            dealsAdapter = DealsPreviewAdapter(it, ::handleOfferClick)
+            dealsAdapter = DealsPreviewAdapter(
+                deals.filter { it.discountPrice != null }
+                    .sortedByDescending { it.price - it.discountPrice!! }
+                    .take(5),
+                ::handleOfferClick)
             recyclerView.adapter = dealsAdapter
         }
         return root
     }
 
     private fun handleOfferClick(deal: Product) =
-        findNavController().navigate(DashboardFragmentDirections.actionDealsPreviewFragmentToDealsDetailsActivity(deal))
+        findNavController().navigate(
+            DashboardFragmentDirections.actionDealsPreviewFragmentToDealsDetailsActivity(
+                deal
+            )
+        )
 
     private fun handleViewAll() =
-        findNavController().navigate(DashboardFragmentDirections.actionDealsPreviewFragmentToCategoryActivity(Category.All))
+        findNavController().navigate(
+            DashboardFragmentDirections.actionDealsPreviewFragmentToCategoryActivity(
+                Category.All
+            )
+        )
 }

@@ -1,11 +1,15 @@
 package com.example.promoshow.feature.deals.previews
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.api.product.model.Product
 import com.example.promoshow.R
+import com.example.promoshow.util.loadImageWithGlide
+import com.example.promoshow.util.toPLN
 
 class DealsPreviewAdapter(private val deals: List<Product>, private val offerClickListener: (Product) -> Unit,) :
     RecyclerView.Adapter<DealsPreviewAdapter.DealsViewHolder>() {
@@ -25,12 +29,22 @@ class DealsPreviewAdapter(private val deals: List<Product>, private val offerCli
     }
 
     class DealsViewHolder(itemView: View, private val offerClickListener: (Product) -> Unit,) : RecyclerView.ViewHolder(itemView) {
-        private val title: TextView = itemView.findViewById(R.id.dealsTitleTextView)
+        private val title: TextView = itemView.findViewById(R.id.productNameTextView)
+        private val maker: TextView = itemView.findViewById(R.id.makerNameTextView)
+        private val discount: TextView = itemView.findViewById(R.id.promoPriceTextView)
+        private val price: TextView = itemView.findViewById(R.id.regularPriceTextView)
+        private  val image: ImageView = itemView.findViewById(R.id.productImageView)
 
-        fun bind(deal: Product) {
-            title.text = deal.name
-            itemView.setOnClickListener { offerClickListener(deal)}
+        fun bind(product: Product) {
+            title.text = product.name
+            discount.text = product.discountPrice?.toPLN()
+            maker.text = product.maker
+            price.apply {
+                paintFlags = paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                text = product.price.toPLN()
+            }
+            loadImageWithGlide(image, product.image)
+            itemView.setOnClickListener { offerClickListener(product)}
         }
-
     }
 }

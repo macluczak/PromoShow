@@ -27,6 +27,13 @@
     <color name="warm_grey_two_disable">#1F7A7A7A</color>
     <color name="warm_grey_two_pressed">#7A7A7A7A</color>
 
+    <color name="primary">#000000</color>
+    <color name="primary_variant">#70798c</color>
+    <color name="surface">#f4f4f9</color>
+    <color name="tertiary">#586f7c</color>
+    <color name="tertiary_variant">#2f4550</color>
+    <color name="secondary">#b8dbd9</color>
+
     <color name="violet">#B785FF</color>
     <color name="violet_focused">#3DB785FF</color>
     <color name="violet_disable">#1FB785FF</color>

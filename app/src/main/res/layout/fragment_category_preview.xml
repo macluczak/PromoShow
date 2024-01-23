@@ -19,20 +19,25 @@
             android:textSize="32sp"
             android:text="Category"
             tools:text="Category"
-            android:textStyle="bold"/>
+            style="@style/PromoLabel.Black.LatoBold"
+            android:textColor="@color/primary_variant"
+           />
 
         <TextView
             android:id="@+id/category_view_all"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:gravity="end"
+            android:textColor="@color/tertiary"
+            style="@style/PromoLabel.Black.LatoLight"
             android:text="view all"
             tools:text="view all"/>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginStart="2dp"
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

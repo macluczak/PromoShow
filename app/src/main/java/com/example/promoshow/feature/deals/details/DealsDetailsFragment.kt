@@ -1,5 +1,6 @@
 package com.example.promoshow.feature.deals.details
 
+import android.graphics.Paint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,8 @@ import androidx.navigation.fragment.navArgs
 import com.example.promoshow.R
 import com.example.promoshow.databinding.FragmentDealsDetailsBinding
 import com.example.promoshow.feature.deals.previews.DealsViewModel
+import com.example.promoshow.util.loadImageWithGlide
+import com.example.promoshow.util.toPLN
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -33,19 +36,33 @@ class DealsDetailsFragment : Fragment() {
 
         _binding = FragmentDealsDetailsBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        val deal = args.dealObject
 
-        binding.dealId.text = args.dealObject.id.toString()
-        binding.dealName.text = args.dealObject.name
-        binding.dealDescription.text = args.dealObject.description
-        binding.dealOutlet.text = "Producent"
-        isFavourite = dealsViewModel.isFavourite(args.dealObject.id.toString())
+        isFavourite = dealsViewModel.isFavourite(deal.id.toString())
         updateFavouriteIcon()
 
-        binding.favouriteButton.setOnClickListener {
-            isFavourite = !isFavourite
-            dealsViewModel.updateFavourite(args.dealObject.id.toString(), isFavourite)
-            updateFavouriteIcon()
+        binding.apply {
+            dealLabelId.text = "id: ${deal.id.toString()}"
+            dealName.text = deal.name
+            dealDescription.text = deal.description
+            dealOutlet.text = deal.maker
+
+            loadImageWithGlide(dealImage, deal.image)
+
+            dealPrice.text = deal.discountPrice?.toPLN()
+
+            dealRegularPrice.apply {
+                paintFlags = paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                text = deal.price.toPLN()
+            }
+
+            favouriteButton.setOnClickListener {
+                isFavourite = !isFavourite
+                dealsViewModel.updateFavourite(deal.id.toString(), isFavourite)
+                updateFavouriteIcon()
+            }
         }
+
         return root
     }
 

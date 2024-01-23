@@ -14,6 +14,7 @@ data class Product(
     val image: String,
     val amount: Int,
     val category: String,
+    val maker: String,
     val discountPrice: Double? = null,
     val discountDate: String? = null, // Format ISO 8601
     val shopId: UUID? = null,
@@ -28,6 +29,7 @@ data class Product(
         parcel.readDouble(),
         parcel.readString().toString(),
         parcel.readInt(),
+        parcel.readString().toString(),
         parcel.readString().toString(),
         parcel.readSerializable() as Double?,
         parcel.readString(),
@@ -44,6 +46,7 @@ data class Product(
         parcel.writeString(image)
         parcel.writeInt(amount)
         parcel.writeString(category)
+        parcel.writeString(maker)
         parcel.writeSerializable(discountPrice)
         parcel.writeString(discountDate)
         parcel.writeSerializable(shopId)

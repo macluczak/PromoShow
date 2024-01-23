@@ -1,4 +1,5 @@
 package com.example.promoshow.feature.stores.previews
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -33,19 +34,27 @@ class StoresPreviewFragment : Fragment() {
         _binding = FragmentStoresPreviewBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        storesViewModel.shops.observe(viewLifecycleOwner) {
+        storesViewModel.shops.observe(viewLifecycleOwner) { stores ->
 
             recyclerView = binding.recyclerView
-            recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+            recyclerView.layoutManager =
+                LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
 
-            storesAdapter = StoresPreviewAdapter(it, ::handleOfferClick)
+            storesAdapter = StoresPreviewAdapter(
+                stores.sortedByDescending { it.products.count() }
+                    .take(5),
+                ::handleOfferClick
+            )
             recyclerView.adapter = storesAdapter
-
         }
 
         return root
     }
     private fun handleOfferClick(shop: Shop) {
-        findNavController().navigate(DashboardFragmentDirections.actionStoresPreviewFragmentToStoresDetailsActivity(shop))
+        findNavController().navigate(
+            DashboardFragmentDirections.actionStoresPreviewFragmentToStoresDetailsActivity(
+                shop
+            )
+        )
     }
 }

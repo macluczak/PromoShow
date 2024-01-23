@@ -43,7 +43,7 @@ class FavouritesFragment : Fragment() {
 
             recyclerView = binding.recyclerView
             recyclerView.layoutManager =
-                GridLayoutManager(activity, 3,  GridLayoutManager.VERTICAL, false)
+                GridLayoutManager(activity, 2,  GridLayoutManager.VERTICAL, false)
 
             val deals = product.filter { favourites.contains(it.id.toString())}
             storesDealsAdapter = StoresDealsAdapter(deals, ::handleOfferClick)

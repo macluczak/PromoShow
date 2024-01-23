@@ -1,11 +1,15 @@
 package com.example.promoshow.feature.stores.details
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.api.product.model.Product
 import com.example.promoshow.R
+import com.example.promoshow.util.loadImageWithGlide
+import com.example.promoshow.util.toPLN
 import kotlin.reflect.KFunction1
 
 class StoresDealsAdapter(private val deals: List<Product>, private val offerClickListener: KFunction1<Product, Unit>) :
@@ -26,10 +30,21 @@ class StoresDealsAdapter(private val deals: List<Product>, private val offerClic
     }
 
     class StoresDealsViewHolder(itemView: View,  private val offerClickListener: KFunction1<Product, Unit>) : RecyclerView.ViewHolder(itemView) {
-        private val title: TextView = itemView.findViewById(R.id.storesTitleTextView)
+        private val title: TextView = itemView.findViewById(R.id.productNameTextView)
+        private val maker: TextView = itemView.findViewById(R.id.makerNameTextView)
+        private val discount: TextView = itemView.findViewById(R.id.promoPriceTextView)
+        private val price: TextView = itemView.findViewById(R.id.regularPriceTextView)
+        private val image: ImageView = itemView.findViewById(R.id.productImageView)
 
         fun bind(product: Product) {
             title.text = product.name
+            maker.text = product.maker
+            discount.text = product.discountPrice?.toPLN()
+            price.apply {
+                paintFlags = paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                text = product.price.toPLN()
+            }
+            loadImageWithGlide(image, product.image)
             itemView.setOnClickListener { offerClickListener(product)}
         }
     }

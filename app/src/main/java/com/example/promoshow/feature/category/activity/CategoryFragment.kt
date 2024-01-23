@@ -47,7 +47,7 @@ class CategoryFragment : Fragment() {
 
             recyclerView = binding.categoryItemsRc
             recyclerView.layoutManager =
-                GridLayoutManager(activity, 3,  GridLayoutManager.VERTICAL, false)
+                GridLayoutManager(activity, 2,  GridLayoutManager.VERTICAL, false)
 
             val categoryItems = it.filter { if(selectedCategory != Category.All)
                 it.category == args.categoryObject.name else true  }

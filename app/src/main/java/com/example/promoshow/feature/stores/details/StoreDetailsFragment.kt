@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.api.product.model.Product
 import com.example.promoshow.R
 import com.example.promoshow.databinding.FragmentStoreDetailsBinding
+import com.example.promoshow.util.loadImageWithGlide
 
 class StoreDetailsFragment : Fragment() {
 
@@ -39,8 +40,7 @@ class StoreDetailsFragment : Fragment() {
 
         recyclerView = view.findViewById(R.id.store_items_rc)
         recyclerView.layoutManager =
-            GridLayoutManager(activity, 3,  GridLayoutManager.VERTICAL, false)
-
+            GridLayoutManager(activity, 2,  GridLayoutManager.VERTICAL, false)
 
         storesDealsAdapter = StoresDealsAdapter(args.shopObject.products, ::handleOfferClick)
         recyclerView.adapter = storesDealsAdapter
@@ -48,6 +48,7 @@ class StoreDetailsFragment : Fragment() {
         binding.storeName.text = args.shopObject.name
         binding.storeDescription.text = args.shopObject.description
 
+        loadImageWithGlide(binding.storeLogo, args.shopObject.image)
     }
 
     override fun onDestroyView() {

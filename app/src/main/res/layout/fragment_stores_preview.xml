@@ -19,17 +19,9 @@
             android:textSize="32sp"
             android:text="Popular Outlets"
             tools:text="Popular Outlets"
-            android:textStyle="bold"/>
+            android:textColor="@color/primary_variant"
+            style="@style/PromoLabel.Black.LatoBold"/>
 
-        <TextView
-            android:id="@+id/stores_view_all"
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="end"
-            android:textSize="20sp"
-            android:text="view all"
-            tools:text="view all"/>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

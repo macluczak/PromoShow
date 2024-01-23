@@ -3,48 +3,45 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    >
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="150sp"
-        android:layout_height="150sp"
-        android:elevation="10sp"
-        app:cardBackgroundColor="#FFE6EA"
-        android:layout_margin="5sp"
-        app:cardCornerRadius="15sp">
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:elevation="8dp"
+        app:cardBackgroundColor="#FFFFFF"
+        android:layout_margin="6dp"
+        app:cardCornerRadius="15dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <RelativeLayout
+            <ImageView
+                android:id="@+id/productImageView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <ImageView
-                    android:layout_width="80sp"
-                    android:layout_height="80sp"
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/ic_launcher_foreground" />
-
-
-            </RelativeLayout>
-
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:padding="5dp"
+                android:src="@drawable/image_24" />
 
             <TextView
-                android:id="@+id/storesTitleTextView"
-                android:gravity="center"
+                android:id="@+id/storeNameTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="Empik"
+                style="@style/PromoLabel.Black.Lato"
+                android:textColor="@color/tertiary_variant"
+                tools:text="Product Name"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textSize="18sp"
                 android:textStyle="bold"
+                android:gravity="center"
+                android:padding="8dp" />
 
-                />
         </LinearLayout>
-
 
     </androidx.cardview.widget.CardView>
 

@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:elevation="10sp"
-        app:cardBackgroundColor="@color/warm_grey_two"
+        app:cardBackgroundColor="@color/white"
         android:layout_margin="5sp"
         app:cardCornerRadius="15sp">
 
@@ -22,27 +22,38 @@
 
 
                 <ImageView
-
-                    android:layout_width="80sp"
-                    android:layout_height="80sp"
+                    android:id="@+id/image"
+                    android:layout_width="100dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter"
                     android:layout_centerInParent="true"
-                    android:src="@drawable/ic_launcher_foreground" />
-
-
-
+                    android:padding="5dp"
+                    android:src="@drawable/image_24" />
 
             <TextView
                 android:id="@+id/storesTitleTextView"
                 android:gravity="left"
-                android:layout_width="match_parent"
+                style="@style/PromoLabel.Black.LatoBold"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Empik"
-                android:textStyle="bold"
-
+                android:textColor="@color/tertiary_variant"
+                android:textSize="16dp"
                 />
+
+            <TextView
+                android:id="@+id/deals_count"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:layout_marginRight="20dp"
+                style="@style/PromoLabel.Black.Lato.Medium"
+                android:textColor="@color/secondary"
+                android:textSize="16dp"
+                android:text="0 deals"/>
+
         </LinearLayout>
-
-
     </androidx.cardview.widget.CardView>
 
 </LinearLayout>

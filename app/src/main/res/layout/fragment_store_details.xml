@@ -8,7 +8,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white">
+        android:background="@color/surface">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
@@ -37,7 +37,8 @@
                         android:id="@+id/store_logo"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/ic_launcher_foreground" />
+                        android:padding="15dp"
+                        android:src="@drawable/image_24" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -47,6 +48,7 @@
                     android:textSize="@dimen/text_size_xxlarge"
                     android:gravity="center"
                     android:paddingVertical="@dimen/activity_vertical_margin"
+                    android:textColor="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Media market" />
@@ -57,6 +59,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/text_size_medium"
+                    android:textColor="@color/white"
                     style="@style/PromoLabel.Black.LatoMedium"
                     tools:text="Sklep komputerowy x-kom.pl > Posiadamy niezwykle szeroką ofertę. Oferujemy fachowe doradztwo oraz atrakcyjne ceny. Zapewniamy inteligentny wybór." />
 
@@ -68,6 +71,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
+        android:background="@color/surface"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
