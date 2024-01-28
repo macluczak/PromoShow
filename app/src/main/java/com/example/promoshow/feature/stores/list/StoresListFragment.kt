@@ -33,12 +33,12 @@ class StoresListFragment : Fragment() {
         val root: View = binding.root
 
 
-        storesViewModel.shops.observe(viewLifecycleOwner) {
+        storesViewModel.shops.observe(viewLifecycleOwner) { shops ->
 
             recyclerView = binding.recyclerView
             recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
 
-            storesAdapter = StoresListAdapter(it, ::handleOfferClick)
+            storesAdapter = StoresListAdapter(shops.sortedBy { it.name }, ::handleOfferClick)
             recyclerView.adapter = storesAdapter
         }
 
