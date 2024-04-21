@@ -17,7 +17,7 @@ object ApiModule {
     @Singleton
     fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("http://10.0.2.2:8080")
+            .baseUrl("https://promo-backend-0c78ce47de0c.herokuapp.com")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

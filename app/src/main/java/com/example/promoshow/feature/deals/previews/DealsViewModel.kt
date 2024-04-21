@@ -33,7 +33,6 @@ class DealsViewModel @Inject constructor(
             try {
                 val response = productApi.getProducts()
                 _products.postValue(response)
-                Log.d("API_CALL", "LIST_OF_PRODUCTS: $response")
 
             } catch (e: Exception) {
                 e.printStackTrace()
